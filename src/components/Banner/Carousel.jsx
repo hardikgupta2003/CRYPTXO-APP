@@ -7,10 +7,25 @@ import { makeStyles } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import { numberWithCommas } from '../CoinsTable';
 
-
+const useStyles = makeStyles((theme) => ({
+    carousel: {
+      height: "50%",
+      display: "flex",
+      alignItems: "center",
+    },
+    carouselItem: {
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      cursor: "pointer",
+      textTransform: "uppercase",
+      color: "white",
+    },
+  }));
 
 const Carousel = () => {
     const [trending,setTrending]=useState([]);
+    const classes= useStyles();
     const {currency,symbol}=CryptoState();
 
     const fetchTrendingCoins = async () => {
@@ -26,24 +41,9 @@ const Carousel = () => {
 
     },[currency]);
 
-    const useStyles=makeStyles((theme)=>({
-        carousel: {
-            height: "50%",
-            display: "flex",
-            alignItems: "center",
-            
-          },
-          carouselItem: {
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            cursor: "pointer",
-            textTransform: "uppercase",
-            color: "white",
-          },
-    }));
+    
 
-    const classes= useStyles();
+    
     const items=trending.map((coin)=>{
         let profit = coin?.price_change_percentage_24h>=0;
 
@@ -87,7 +87,7 @@ const Carousel = () => {
     },
     };
   return (
-    <div className="flex h-[50%] items-center">
+    <div className={classes.carousel}>
         <AliceCarousel
          mouseTracking
          infinite
