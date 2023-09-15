@@ -16,6 +16,7 @@ import {
   makeStyles
 } from '@material-ui/core';
 import { CoinList } from '../config/api';
+import { unstable_HistoryRouter } from 'react-router-dom';
 import axios from 'axios';
 
 
@@ -66,7 +67,9 @@ const CoinsTable = () => {
         color: "gold",
       },
     }
-  })
+  });
+  const classes = useStyles();
+  const history = unstable_HistoryRouter();
 
   return (
     <ThemeProvider theme={darkTheme}>
@@ -115,7 +118,7 @@ const CoinsTable = () => {
                   return (
                     <TableRow onClick={
                       ()=> history.pushState(`/coins/${row.id}`)}
-                      className={Classnames.row}
+                      className={classes.row}
                       key={row.name}>
 
                     </TableRow>
