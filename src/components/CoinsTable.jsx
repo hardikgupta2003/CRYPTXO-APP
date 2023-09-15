@@ -18,6 +18,7 @@ import {
 import { CoinList } from '../config/api';
 import { Navigate, useHistory, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { Pagination } from '@material-ui/lab';
 
 
 export function numberWithCommas(x) {
@@ -121,7 +122,7 @@ const CoinsTable = () => {
               </TableHead>
 
               <TableBody>
-                {handleSearch().map((row)=>{
+                {handleSearch().slice((page-1)*10,(page-1)**10+10).map((row)=>{
                   const profit =row.price_change_percentage_24h > 0;
                   return (
                     <TableRow onClick={
@@ -174,6 +175,21 @@ const CoinsTable = () => {
             </Table>)
           }
         </TableContainer>
+
+        <Pagination
+        count={(handleSearch()?.lenght/10).toFixed(0)}
+        style={{
+          padding:20,
+          width:"100%",
+          display:"flex",
+          justifyContent:"center",
+        }}
+        classes={{ul:classes.pagination}}
+        onChange={(_,value)=>{
+          setPage(value);
+          window.scroll(0,450);
+        }}
+        />
 
 
 
