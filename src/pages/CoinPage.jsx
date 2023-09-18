@@ -70,7 +70,9 @@ const CoinPage = () => {
         alignItems: "start",
       },
     },
-  }))
+  }));
+
+  const classes = useStyles();
   return (
     <div>
 
