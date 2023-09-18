@@ -42,8 +42,8 @@ const CoinsTable = () => {
   }
   useEffect(() => {
     FetchCoinsData();
-
   }, [currency]);
+    
 
   const darkTheme = createTheme({
     palette: {
@@ -53,6 +53,7 @@ const CoinsTable = () => {
       type: "dark",
     },
   });
+  
 
   const useStyles= makeStyles({
     row:{
