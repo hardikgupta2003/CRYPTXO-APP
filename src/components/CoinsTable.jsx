@@ -19,16 +19,13 @@ import { CoinList } from '../config/api';
 import { Navigate, useHistory, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { Pagination } from '@material-ui/lab';
+import { numberWithCommas } from '../components/Func';
 
 
-export function numberWithCommas(x) {
-  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-}
 
 const CoinsTable = () => {
   const [coins, setCoins] = useState([]);
   const [loading, setLoading] = useState(false);
-
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
   const { currency, symbol } = CryptoState();
@@ -71,7 +68,7 @@ const CoinsTable = () => {
     }
   });
   const classes = useStyles();
-  const navigate = useNavigate();
+  const Navigate = useNavigate();
 
   const handleSearch=()=>{
     return coins.filter(
@@ -80,7 +77,8 @@ const CoinsTable = () => {
       coin.symbol.toLowerCase().includes(search) 
     );
   };
-
+  
+  
   return (
     <ThemeProvider theme={darkTheme}>
 

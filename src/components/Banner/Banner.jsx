@@ -3,32 +3,33 @@ import React from 'react'
 import Carousel from './Carousel';
 
 
-const useStyles = makeStyles((theme)=>({
-    banner:{
-        backgroundImage:"url(./banner2.jpg)",
-    },
-    bannerContent:{
-        height:400,
-        display:"flex",
-        flexDirection:"column",
-        paddingTop:25,
-        justifyContent:"space-around",
-    },
-    tagline:{
-        display: "flex",
-        height: "40%",
-        flexDirection: "column",
-        justifyContent: "center",
-        textAlign: "center",
-    },
-    carousel: {
-        height: "50%",
-        display: "flex",
-        alignItems: "center",
-      },
-}))
+
 
 const Banner = () => {
+    const useStyles = makeStyles((theme)=>({
+        banner:{
+            backgroundImage:"url(./banner2.jpg)",
+        },
+        bannerContent:{
+            height:400,
+            display:"flex",
+            flexDirection:"column",
+            paddingTop:25,
+            justifyContent:"space-around",
+        },
+        tagline:{
+            display: "flex",
+            height: "40%",
+            flexDirection: "column",
+            justifyContent: "center",
+            textAlign: "center",
+        },
+        carousel: {
+            height: "50%",
+            display: "flex",
+            alignItems: "center",
+          },
+    }))
     const classes=useStyles();
   return (
     <div className={classes.banner}>

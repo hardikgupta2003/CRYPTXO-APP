@@ -5,9 +5,13 @@ import axios from 'axios';
 import { TrendingCoins } from '../../config/api';
 import { makeStyles } from '@material-ui/core';
 import { Link } from 'react-router-dom';
-import { numberWithCommas } from '../CoinsTable';
+import { numberWithCommas } from '../Func';
 
-const useStyles = makeStyles((theme) => ({
+
+
+const Carousel = () => {
+
+  const useStyles = makeStyles((theme) => ({
     carousel: {
       height: "50%",
       display: "flex",
@@ -22,8 +26,6 @@ const useStyles = makeStyles((theme) => ({
       color: "white",
     },
   }));
-
-const Carousel = () => {
     const [trending,setTrending]=useState([]);
     const classes= useStyles();
     const {currency,symbol}=CryptoState();
